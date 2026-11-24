@@ -1,61 +1,63 @@
-<!doctype html>
-<html lang="id" data-theme="dark">
+@import "tailwindcss";
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FatihMuhammad-cv</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://ik.imagekit.io/orangtakdikenal/Acd8d5cebfde34af0840f395394337911i.png"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="icon" href="https://ik.imagekit.io/orangtakdikenal/Acd8d5cebfde34af0840f395394337911i.png">
-  <style>
+@layer components {
     /* ================================================================
-       CSS VARIABLES — Ubah warna tema di sini
+       CSS VARIABLES — GRAFFITI PALETTE
+       Mode Gelap: Primary & Sekunder = Hitam & Merah
+       Mode Terang: Primary & Sekunder = Putih & Biru
     ================================================================ */
     :root[data-theme="dark"] {
-      --bg-main: #0a0a0f;
-      --bg-alt: #111118;
-      --bg-side: #0d0d14;
-      --bg-card: #16161f;
-      --border: rgba(212, 175, 55, .18);
-      --border-s: rgba(255, 255, 255, .06);
-      --txt-1: #f0ece4;
-      --txt-2: #8a8595;
-      --txt-3: #504d5e;
-      --gold: #d4af37;
-      --gold-l: #f0d060;
-      --gold-dim: rgba(212, 175, 55, .12);
-      --side-t: #c8c4bb;
-      --shadow: rgba(0, 0, 0, .65);
-      --shadow-g: rgba(212, 175, 55, .22);
-      --overlay: rgba(10, 10, 15, .93);
-      --sb-track: #1a1a24;
-      --tog-bg: #1e1e2a;
+      --bg-main: #070709;
+      --bg-alt: #0d0d12;
+      --bg-side: #0a0a0d;
+      --bg-card: #121217;
+      --border: rgba(255, 36, 66, .45);
+      --border-s: rgba(255, 255, 255, .08);
+      --txt-1: #fbfbfd;
+      --txt-2: #a5a5b5;
+      --txt-3: #656577;
+      --gold: #ff2442;         /* Primary Graffiti Spray Red */
+      --gold-l: #ff4760;       /* Spray Highlight Red */
+      --gold-dim: rgba(255, 36, 66, .14);
+      --gold-rgb: 255, 36, 66;
+      --sec: #b91c1c;          /* Secondary Blood Crimson Red */
+      --side-t: #ffffff;
+      --shadow: rgba(0, 0, 0, .85);
+      --shadow-g: rgba(255, 36, 66, .42);
+      --overlay: rgba(7, 7, 9, .95);
+      --sb-track: #14141a;
+      --tog-bg: #121217;
+      --sticker-txt: #ffffff;
+      --sticker-bg: #ff2442;
+      --sticker-2: #b91c1c;
+      --ink: #000000;
     }
 
     :root[data-theme="light"] {
-      --bg-main: #f8f5ef;
+      --bg-main: #f5f8fc;
       --bg-alt: #ffffff;
-      --bg-side: #1a1a2e;
+      --bg-side: #ffffff;
       --bg-card: #ffffff;
-      --border: rgba(180, 145, 30, .25);
-      --border-s: rgba(0, 0, 0, .07);
-      --txt-1: #1a1a2e;
-      --txt-2: #5a5670;
-      --txt-3: #9c98a6;
-      --gold: #b8910a;
-      --gold-l: #d4a017;
-      --gold-dim: rgba(184, 145, 10, .10);
-      --side-t: #c8c4bb;
-      --shadow: rgba(0, 0, 0, .14);
-      --shadow-g: rgba(184, 145, 10, .22);
-      --overlay: rgba(26, 26, 46, .93);
-      --sb-track: #e8e4dc;
-      --tog-bg: #ede9e0;
+      --border: rgba(37, 99, 235, .40);
+      --border-s: rgba(15, 23, 42, .10);
+      --txt-1: #0a192f;
+      --txt-2: #3e4f68;
+      --txt-3: #7b8b9f;
+      --gold: #2563eb;         /* Primary Graffiti Electric Blue */
+      --gold-l: #3b82f6;       /* Spray Blue Highlight */
+      --gold-dim: rgba(37, 99, 235, .12);
+      --gold-rgb: 37, 99, 235;
+      --sec: #0284c7;          /* Secondary Cobalt / Deep Blue */
+      --side-t: #0a192f;
+      --shadow: rgba(10, 25, 47, .16);
+      --shadow-g: rgba(37, 99, 235, .35);
+      --overlay: rgba(10, 25, 47, .94);
+      --sb-track: #e2e8f0;
+      --tog-bg: #eaf1fc;
+      --sticker-txt: #ffffff;
+      --sticker-bg: #2563eb;
+      --sticker-2: #0284c7;
+      --ink: #0a192f;
     }
 
     /* ================================================================
@@ -77,10 +79,12 @@
     }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       background: var(--bg-main);
       color: var(--txt-1);
-      transition: background .5s, color .5s
+      transition: background .5s, color .5s;
+      background-image:
+        repeating-linear-gradient(135deg, rgba(var(--gold-rgb), .025) 0 1px, transparent 1px 14px);
     }
 
     /* ================================================================
@@ -121,7 +125,7 @@
       width: 280px;
       height: 280px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(212, 175, 55, .07) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(var(--gold-rgb), .10) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -133,7 +137,7 @@
       width: 220px;
       height: 220px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(212, 175, 55, .04) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(var(--gold-rgb), .06) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -193,22 +197,28 @@
 
     /* Nama */
     .sd-name h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 21px;
-      font-weight: 700;
+      font-family: 'Anton', sans-serif;
+      font-size: 22px;
+      font-weight: 400;
       color: var(--side-t);
-      letter-spacing: .05em;
-      line-height: 1.25
+      letter-spacing: .02em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      transform: skewX(-4deg);
     }
 
     .sd-name span {
-      display: block;
-      font-size: 9.5px;
-      font-weight: 500;
-      letter-spacing: .28em;
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 5px
+      color: var(--sticker-txt);
+      background: var(--gold);
+      padding: 3px 9px;
+      margin-top: 8px;
+      transform: rotate(-2deg);
+      box-shadow: 2px 2px 0 var(--ink);
     }
 
     /* Social */
@@ -221,7 +231,7 @@
       width: 33px;
       height: 33px;
       border-radius: 50%;
-      border: 1px solid rgba(212, 175, 55, .22);
+      border: 1px solid rgba(var(--gold-rgb), .25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -306,11 +316,12 @@
     }
 
     .sd-quote p {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 11.5px;
+      font-family: 'Permanent Marker', cursive;
+      font-style: normal;
+      font-size: 12.5px;
       color: var(--side-t);
-      line-height: 1.6
+      line-height: 1.5;
+      transform: rotate(-1deg);
     }
 
     /* Stats */
@@ -322,9 +333,9 @@
     }
 
     .sd-stat {
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid var(--border-s);
-      border-radius: 8px;
+      background: transparent;
+      border: 1.5px solid var(--border-s);
+      border-radius: 4px;
       padding: 10px;
       text-align: center;
       transition: all .3s
@@ -332,13 +343,15 @@
 
     .sd-stat:hover {
       border-color: var(--gold);
-      background: var(--gold-dim)
+      background: var(--gold-dim);
+      transform: translate(-2px, -2px);
+      box-shadow: 3px 3px 0 var(--gold)
     }
 
     .sd-stat .n {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 700;
+      font-family: 'Anton', sans-serif;
+      font-size: 22px;
+      font-weight: 400;
       color: var(--gold)
     }
 
@@ -359,23 +372,25 @@
       justify-content: center;
       gap: 8px;
       padding: 11px 16px;
-      border: 1px solid var(--gold);
-      border-radius: 4px;
+      border: 2px solid var(--gold);
+      border-radius: 2px;
       background: transparent;
       color: var(--gold);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: .2em;
+      font-weight: 700;
+      letter-spacing: .18em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: all .4s;
+      transition: all .25s;
+      box-shadow: 4px 4px 0 var(--gold);
     }
 
     .sd-cv:hover {
       background: var(--gold);
-      color: var(--bg-side);
-      box-shadow: 0 0 24px var(--shadow-g)
+      color: var(--sticker-txt);
+      box-shadow: 1px 1px 0 var(--gold);
+      transform: translate(3px, 3px);
     }
 
     .sd-cv i {
@@ -453,23 +468,29 @@
     }
 
     .mh-info h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 15px;
-      font-weight: 700;
+      font-family: 'Anton', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
       color: var(--side-t);
-      line-height: 1.2;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: .02em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis
     }
 
     .mh-role {
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: .22em;
+      display: inline-block;
+      font-size: 7.5px;
+      font-weight: 700;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 2px
+      color: var(--sticker-txt);
+      background: var(--gold);
+      padding: 2px 6px;
+      margin-top: 3px;
+      transform: rotate(-2deg);
     }
 
     .mh-avail {
@@ -496,22 +517,25 @@
       align-items: center;
       gap: 5px;
       padding: 7px 12px;
-      border: 1px solid var(--gold);
-      border-radius: 4px;
+      border: 1.5px solid var(--gold);
+      border-radius: 2px;
       background: transparent;
       color: var(--gold);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 8px;
-      font-weight: 600;
-      letter-spacing: .15em;
+      font-weight: 700;
+      letter-spacing: .13em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: all .3s;
+      transition: all .25s;
+      box-shadow: 3px 3px 0 var(--gold);
     }
 
     .mh-cv:hover {
       background: var(--gold);
-      color: var(--bg-side)
+      color: var(--sticker-txt);
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--gold)
     }
 
     /* Row 2: stat strip */
@@ -535,9 +559,9 @@
     }
 
     .mh-st .n {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 15px;
-      font-weight: 700;
+      font-family: 'Anton', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
       color: var(--gold);
       line-height: 1
     }
@@ -568,7 +592,7 @@
       width: 26px;
       height: 26px;
       border-radius: 50%;
-      border: 1px solid rgba(212, 175, 55, .2);
+      border: 1px solid rgba(var(--gold-rgb), .22);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -667,21 +691,30 @@
 
     /* Shared labels */
     .eyebrow {
+      display: inline-block;
       font-size: 9px;
-      font-weight: 600;
-      letter-spacing: .33em;
+      font-weight: 700;
+      letter-spacing: .2em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 6px
+      color: var(--sticker-txt);
+      background: var(--gold);
+      padding: 4px 10px;
+      margin-bottom: 10px;
+      transform: rotate(-2deg);
+      box-shadow: 3px 3px 0 var(--ink);
     }
 
     .title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
-      font-weight: 700;
+      font-family: 'Anton', sans-serif;
+      font-size: 48px;
+      font-weight: 400;
       color: var(--txt-1);
-      line-height: 1;
-      margin-bottom: 32px
+      line-height: .95;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      transform: skewX(-3deg);
+      text-shadow: 4px 4px 0 var(--gold-dim);
     }
 
     /* ================================================================
@@ -721,7 +754,7 @@
     }
 
     .h-sm {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Anton', sans-serif;
       font-size: 26px;
       font-weight: 300;
       color: var(--txt-2);
@@ -733,7 +766,7 @@
     }
 
     .h-lg {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anton', sans-serif;
       font-size: clamp(42px, 5.4vw, 74px);
       font-weight: 900;
       color: var(--gold);
@@ -888,12 +921,17 @@
     }
 
     .sk-pc {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 12px;
-      color: var(--gold);
-      font-weight: 700;
+      color: #ffffff;
+      font-weight: 500;
+      letter-spacing: .04em;
       opacity: 0;
       transition: opacity .5s ease 1.4s
+    }
+
+    :root[data-theme="light"] .sk-pc {
+      color: var(--txt-1);
     }
 
     .s.active .sk-pc {
@@ -971,7 +1009,7 @@
       background: transparent;
       color: var(--txt-2);
       cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       transition: all .3s;
     }
 
@@ -985,37 +1023,73 @@
     .port-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      overflow: hidden
+      gap: 12px;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+      padding-right: 6px;
+      padding-bottom: 24px;
+    }
+
+    .port-grid::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .port-grid::-webkit-scrollbar-track {
+      background: var(--bg-alt);
+      border-radius: 4px;
+    }
+
+    .port-grid::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 4px;
     }
 
     .pc {
       height: 166px;
-      border-radius: 7px;
+      border-radius: 6px;
       overflow: hidden;
       position: relative;
       cursor: pointer;
-      border: 1px solid var(--border-s);
-      transition: border-color .3s, box-shadow .3s;
-      background: var(--bg-card)
+      border: 1.5px solid var(--border-s);
+      transition: all .3s cubic-bezier(.2, 1, .3, 1);
+      background: var(--bg-card);
+      box-shadow: 3px 3px 0 rgba(0, 0, 0, .45);
+    }
+
+    .pc-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: var(--gold);
+      color: var(--sticker-txt);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+      z-index: 2;
+      box-shadow: 2px 2px 0 var(--ink);
+      transform: rotate(-1.5deg);
     }
 
     .pc img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: grayscale(65%) brightness(.82);
-      transition: all .6s
+      filter: grayscale(45%) brightness(.85);
+      transition: all .5s;
     }
 
     .pc:hover img {
       filter: grayscale(0%) brightness(1);
-      transform: scale(1.07)
+      transform: scale(1.08);
     }
 
     .pc:hover {
       border-color: var(--gold);
-      box-shadow: 0 6px 22px var(--shadow-g)
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 var(--gold);
     }
 
     .pc-ov {
@@ -1023,39 +1097,415 @@
       inset: 0;
       background: var(--overlay);
       opacity: 0;
-      transition: opacity .4s;
+      transition: opacity .35s;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 15px
+      padding: 14px;
     }
 
     .pc:hover .pc-ov {
-      opacity: 1
+      opacity: 1;
     }
 
     .pc-cat {
-      font-size: 7.5px;
+      font-size: 8px;
       font-weight: 700;
-      letter-spacing: .22em;
+      letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 4px
+      margin-bottom: 3px;
     }
 
     .pc-tt {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Anton', sans-serif;
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 400;
       color: #fff;
-      line-height: 1.3;
-      margin-bottom: 3px
+      line-height: 1.25;
+      margin-bottom: 3px;
+      letter-spacing: .02em;
     }
 
     .pc-tc {
       font-size: 9.5px;
-      color: rgba(255, 255, 255, .5);
-      font-weight: 300
+      color: rgba(255, 255, 255, .7);
+      font-weight: 300;
+    }
+
+    .pc-action {
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--sticker-txt);
+      background: var(--gold);
+      padding: 3px 8px;
+      border-radius: 2px;
+      align-self: flex-start;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    /* ================================================================
+       PROJECT DETAILS MODAL — GRAFFITI STYLE
+    ================================================================ */
+    .p-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .p-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, .85);
+      backdrop-filter: blur(8px);
+      animation: fadeIn .3s ease;
+    }
+
+    .p-modal-content {
+      position: relative;
+      z-index: 10;
+      background: var(--bg-alt);
+      border: 2px solid var(--gold);
+      box-shadow: 8px 8px 0 var(--ink), 0 0 35px var(--shadow-g);
+      width: 100%;
+      max-width: 840px;
+      max-height: 88vh;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: modalPop .35s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    @keyframes modalPop {
+      from { opacity: 0; transform: scale(.95) translateY(12px) }
+      to { opacity: 1; transform: none }
+    }
+
+    .p-modal-header {
+      padding: 14px 20px;
+      background: var(--bg-side);
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .p-modal-tag {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .sticker-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--sticker-txt);
+      background: var(--gold);
+      padding: 4px 10px;
+      transform: rotate(-1.5deg);
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    .tag-status {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--txt-2);
+      border: 1px dashed var(--border);
+      padding: 3px 8px;
+    }
+
+    .p-modal-close {
+      width: 32px;
+      height: 32px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      color: var(--txt-1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all .2s;
+    }
+
+    .p-modal-close:hover {
+      background: var(--gold);
+      color: var(--sticker-txt);
+      transform: scale(1.08);
+      border-color: var(--gold);
+    }
+
+    .p-modal-body {
+      padding: 22px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .p-modal-hero {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+      align-items: center;
+    }
+
+    .p-modal-img-wrap {
+      position: relative;
+      border: 2px solid var(--border);
+      background: var(--bg-card);
+      box-shadow: 4px 4px 0 var(--ink);
+      overflow: hidden;
+    }
+
+    .p-modal-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .p-modal-spray-tag {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      background: var(--ink);
+      color: var(--gold);
+      font-family: 'Permanent Marker', cursive;
+      font-size: 9px;
+      padding: 2px 6px;
+      letter-spacing: .08em;
+    }
+
+    .p-modal-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--txt-1);
+      letter-spacing: .02em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      transform: skewX(-2deg);
+    }
+
+    .p-modal-quote {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .p-modal-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      font-family: 'Space Mono', monospace;
+      font-size: 9.5px;
+      padding: 3px 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-s);
+      color: var(--txt-2);
+      border-radius: 2px;
+    }
+
+    .chip i {
+      color: var(--gold);
+      margin-right: 4px;
+    }
+
+    .p-modal-notes {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .p-note-block {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-s);
+      padding: 14px 16px;
+      position: relative;
+    }
+
+    .p-note-block h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--gold);
+      margin-bottom: 8px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .p-note-block p {
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: var(--txt-2);
+    }
+
+    .p-feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .p-feature-list li {
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--txt-2);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .p-feature-list li::before {
+      content: '■';
+      position: absolute;
+      left: 0;
+      top: 1px;
+      color: var(--gold);
+      font-size: 9px;
+    }
+
+    .p-feature-list strong {
+      color: var(--txt-1);
+    }
+
+    .p-feature-list code {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      background: var(--gold-dim);
+      color: var(--gold);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+
+    .p-tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .p-tech-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-s);
+      padding: 10px 12px;
+    }
+
+    .p-tech-card h4 {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .p-tech-card p {
+      font-size: 11.5px;
+      color: var(--txt-2);
+      line-height: 1.45;
+    }
+
+    .p-alert-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--gold-dim);
+      border-left: 3px solid var(--gold);
+      padding: 10px 14px;
+    }
+
+    .p-alert-note i {
+      color: var(--gold);
+      font-size: 16px;
+      margin-top: 2px;
+    }
+
+    .p-alert-note strong {
+      font-size: 11px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .p-alert-note p {
+      font-size: 11.5px;
+      color: var(--txt-1);
+      line-height: 1.5;
+    }
+
+    .p-modal-footer {
+      padding: 12px 20px;
+      background: var(--bg-side);
+      border-top: 1.5px solid var(--border-s);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .p-modal-foot-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--txt-3);
+    }
+
+    .btn-p-close {
+      padding: 7px 16px;
+      background: var(--gold);
+      color: var(--sticker-txt);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1.5px solid var(--ink);
+      box-shadow: 2px 2px 0 var(--ink);
+      transition: all .2s;
+    }
+
+    .btn-p-close:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--ink);
+    }
+
+    @media(max-width: 680px) {
+      .p-modal-hero {
+        grid-template-columns: 1fr;
+      }
+      .p-tech-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ================================================================
@@ -1098,7 +1548,7 @@
     }
 
     .ct-ban p {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Anton', sans-serif;
       font-style: italic;
       font-size: 13.5px;
       color: var(--txt-1);
@@ -1107,7 +1557,7 @@
 
     .ct-ban strong {
       font-style: normal;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 10.5px;
       font-weight: 600;
       color: var(--gold)
@@ -1206,14 +1656,14 @@
     }
 
     .ct-nm h2 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Anton', sans-serif;
       font-size: 28px;
       font-weight: 300;
       color: var(--txt-2)
     }
 
     .ct-nm h2 span {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anton', sans-serif;
       font-weight: 900;
       color: var(--gold)
     }
@@ -1240,7 +1690,7 @@
       padding: 12px 22px;
       background: #25d366;
       color: #fff;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 10.5px;
       font-weight: 600;
       letter-spacing: .13em;
@@ -1758,562 +2208,5 @@
         font-size: 13px
       }
     }
-  </style>
-</head>
-
-<body>
-
-  <!-- ================================================================
-     THEME TOGGLE
-================================================================ -->
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle tema">
-    <i class="fa-solid fa-moon ti" id="themeIcon"></i>
-    <span class="tl" id="themeLabel">Dark</span>
-  </button>
-
-  <!-- ================================================================
-     MOBILE HEADER — tablet & HP (≤820px)
-     Informatif: foto + nama + jabatan + status + statistik + social + section label
-     ⬇ UBAH INFO DI SINI ⬇
-================================================================ -->
-  <header id="mh">
-
-    <!-- Row 1: Foto + Nama + Status + Tombol CV -->
-    <div class="mh-r1">
-      <div class="mh-ph">
-        <!-- GANTI "photo.png" dengan path foto Anda -->
-        <img src="Pose 1 — Berdiri.png" alt="Orang"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="mh-ph-fb"><i class="fa-solid fa-user"></i></div>
-      </div>
-      <div class="mh-info">
-        <h2>Muhammad Fatih Al-Adiyat</h2><!-- GANTI NAMA -->
-        <div class="mh-role">Fullstack Dev &amp; UI/UX Designer</div><!-- GANTI JABATAN -->
-        <div class="mh-avail">
-          <div class="dot"></div>
-          <span>Available for Freelance</span><!-- GANTI STATUS -->
-        </div>
-      </div>
-        <!-- GANTI PATH CV -->
-      <a href="Materi Belajar RPL (Sesuai Kisi-Kisi dari Guru).pdf" download="materi-belajar-rpl" class="mh-cv">
-          <i class="fa-solid fa-file-arrow-down"></i><span>Download CV</span>
-        </a>
-    </div>
-
-    <!-- Row 2: Statistik (4 kolom) -->
-    <div class="mh-r2">
-      <!-- GANTI ANGKA & LABEL STATISTIK -->
-      <div class="mh-st">
-        <div class="n">12+</div>
-        <div class="l">Projects</div>
-      </div>
-      <div class="mh-st">
-        <div class="n">1+</div>
-        <div class="l">Exp (Yr)</div>
-      </div>
-      <div class="mh-st">
-        <div class="n">3</div>
-        <div class="l">Languages</div>
-      </div>
-      <div class="mh-st">
-        <div class="n">6</div>
-        <div class="l">Skills</div>
-      </div>
-    </div>
-
-    <!-- Row 3: Social media + Label section aktif -->
-    <div class="mh-r3">
-      <div class="mh-soc">
-        <!-- GANTI href DENGAN LINK SOSMED ANDA -->
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="#" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
-      </div>
-      <!-- Diupdate otomatis via JS saat section berubah -->
-      <div class="mh-sec" id="mhSec">
-        <i class="fa-solid fa-house" style="font-size:7px;margin-right:4px"></i>Home
-      </div>
-    </div>
-  </header>
-
-  <!-- ================================================================
-     ROOT LAYOUT
-================================================================ -->
-  <div id="root">
-
-    <!-- SIDEBAR DESKTOP (hanya > 820px) -->
-    <aside id="sidebar">
-      <div class="sd">
-        <!-- FOTO: ganti photo.png -->
-        <div class="ph-wrap">
-          <img src="Pose 1 — Berdiri.png" alt="Fatih"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="ph-fb"><i class="fa-solid fa-user"></i></div>
-        </div>
-
-        <!-- NAMA & JABATAN -->
-        <div class="sd-name">
-          <h1>Muhammad Fatih<br>Al-Adiyat</h1>
-          <span>Fullstack Dev &amp; UI/UX</span>
-        </div>
-
-        <!-- SOCIAL: ganti href -->
-        <div class="sd-social">
-          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/muhammad-fatih-3652483a4/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://github.com/fatihaladiyat" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="#" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
-        </div>
-
-        <div class="sd-div"><i class="fa-solid fa-diamond"></i></div>
-
-        <!-- STATUS -->
-        <div class="sd-status">
-          <div class="dot"></div>
-          <span>Available for Freelance</span>
-        </div>
-
-        <!-- QUOTE FOKUS -->
-        <div class="sd-quote">
-          <p>"Mastering Modern Fullstack Architecture &amp; AI Integration"</p>
-        </div>
-
-        <!-- STATISTIK -->
-        <div class="sd-stats">
-          <div class="sd-stat">
-            <div class="n">12+</div>
-            <div class="l">Projects</div>
-          </div>
-          <div class="sd-stat">
-            <div class="n">1+</div>
-            <div class="l">Exp (Yrs)</div>
-          </div>
-        </div>
-
-        <!-- DOWNLOAD CV: ganti path -->
-        <a href="Materi Belajar RPL (Sesuai Kisi-Kisi dari Guru).pdf" download="materi-belajar-rpl" class="sd-cv">
-          <i class="fa-solid fa-file-arrow-down"></i><span>Download CV</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- MAIN AREA -->
-    <main id="main">
-
-      <!-- Nav Dots -->
-      <div class="nav-dots" id="navDots"></div>
-
-      <!-- SLIDER -->
-      <div id="slider">
-
-        <!-- ==========================================================
-           SECTION 1: HOME  ⬇ UBAH INFO DIRI ⬇
-      ========================================================== -->
-        <section class="s s-home">
-          <div class="dv"></div>
-          <div class="dr"></div>
-          <!-- LABEL ATAS -->
-          <p class="h-eye"><i class="fa-solid fa-star" style="font-size:7px;margin-right:7px"></i>Open to Opportunities
-            — 2025</p>
-          <!-- NAMA KECIL -->
-          <p class="h-sm">muhammad</p>
-          <!-- NAMA BESAR -->
-          <h1 class="h-lg">Fatih Al-Adiyat</h1>
-          <!-- BIO -->
-          <p class="h-bio">
-            Halo! Saya adalah seorang <strong>Siswa</strong> yang memiliki passion besar dalam dunia teknologi.
-            Meskipun masih menempuh pendidikan, saya aktif mengembangkan kemampuan sebagai
-            <strong>Fullstack Developer &amp; UI/UX Designer</strong>. Saya senang mengubah ide menjadi
-            kode dan menciptakan antarmuka web yang interaktif serta fungsional.
-          </p>
-          <!-- KONTAK SINGKAT -->
-          <div class="h-cts">
-            <div class="h-ci"><i class="fa-solid fa-location-dot"></i><span>Bogor, Indonesia</span></div>
-            <!-- UBAH LOKASI -->
-            <div class="h-ci"><i class="fa-solid fa-phone"></i><span>+62 812 3456 7890</span></div><!-- UBAH TELEPON -->
-            <div class="h-ci"><i class="fa-solid fa-envelope"></i><span>abelajar486@gmail.com</span></div>
-            <!-- UBAH EMAIL -->
-          </div>
-        </section>
-
-        <!-- ==========================================================
-           SECTION 2: SKILLS  ⬇ UBAH SKILL & PERSENTASE ⬇
-      ========================================================== -->
-        <section class="s s-alt">
-          <div class="ax" style="transition-delay:.18s">
-            <p class="eyebrow"><i class="fa-solid fa-terminal" style="margin-right:7px"></i>Technical Arsenal</p>
-            <h2 class="title">Skills</h2>
-          </div>
-          <div class="sk-grid">
-            <!-- Ubah nama skill, data-width (angka 0-100), dan teks pct -->
-            <div class="sk-row">
-              <div class="sk-meta"><span class="sk-nm">HTML &amp; CSS</span><span class="sk-pc">85%</span></div>
-              <div class="sk-tr">
-                <div class="sk-bar" data-width="85"></div>
-              </div>
-            </div>
-            <div class="sk-row">
-              <div class="sk-meta"><span class="sk-nm">JavaScript</span><span class="sk-pc">60%</span></div>
-              <div class="sk-tr">
-                <div class="sk-bar" data-width="60"></div>
-              </div>
-            </div>
-            <div class="sk-row">
-              <div class="sk-meta"><span class="sk-nm">Tailwind CSS</span><span class="sk-pc">80%</span></div>
-              <div class="sk-tr">
-                <div class="sk-bar" data-width="80"></div>
-              </div>
-            </div>
-            <div class="sk-row">
-              <div class="sk-meta"><span class="sk-nm">TypeScript</span><span class="sk-pc">30%</span></div>
-              <div class="sk-tr">
-                <div class="sk-bar" data-width="30"></div>
-              </div>
-            </div>
-            <div class="sk-row">
-              <div class="sk-meta"><span class="sk-nm">UI/UX Design</span><span class="sk-pc">80%</span></div>
-              <div class="sk-tr">
-                <div class="sk-bar" data-width="80"></div>
-              </div>
-            </div>
-            <div class="sk-row">
-              <div class="sk-meta"><span class="sk-nm">Database</span><span class="sk-pc">65%</span></div>
-              <div class="sk-tr">
-                <div class="sk-bar" data-width="65"></div>
-              </div>
-            </div>
-            <div class="lang-sep sk-row"><span><i class="fa-solid fa-language" style="margin-right:5px"></i>Language
-                Proficiency</span></div>
-            <div class="sk-row">
-              <div class="sk-meta"><span class="sk-nm">Bahasa Indonesia</span><span class="sk-pc">Native</span></div>
-              <div class="sk-tr">
-                <div class="sk-bar" data-width="90"></div>
-              </div>
-            </div>
-            <div class="sk-row">
-              <div class="sk-meta"><span class="sk-nm">Bahasa Inggris</span><span class="sk-pc">Intermediate</span>
-              </div>
-              <div class="sk-tr">
-                <div class="sk-bar" data-width="65"></div>
-              </div>
-            </div>
-            <div class="sk-row">
-              <div class="sk-meta"><span class="sk-nm">Bahasa Arab</span><span class="sk-pc">Intermediate</span></div>
-              <div class="sk-tr">
-                <div class="sk-bar" data-width="65"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ==========================================================
-           SECTION 3: PORTFOLIO  ⬇ TAMBAH/HAPUS PROYEK ⬇
-      ========================================================== -->
-        <section class="s s-port">
-          <div class="port-hd">
-            <div>
-              <p class="eyebrow" style="margin-bottom:3px"><i class="fa-solid fa-layer-group"
-                  style="margin-right:7px"></i>Selected Works</p>
-              <h2 class="title" style="margin-bottom:0;font-size:32px">Portfolio</h2>
-            </div>
-            <div class="port-fl">
-              <button onclick="fp('all')" class="port-tb active">All</button>
-              <button onclick="fp('uiux')" class="port-tb">UI/UX</button>
-              <button onclick="fp('web')" class="port-tb">Website</button>
-              <button onclick="fp('graphic')" class="port-tb">Graphic</button>
-            </div>
-          </div>
-          <div class="port-grid" id="portGrid">
-            <!-- class="pc [KATEGORI]" — ubah kategori: uiux / web / graphic -->
-            <div class="pc uiux"><img src="Project uts.png"
-                alt="">
-              <div class="pc-ov">
-                <p class="pc-cat">UI/UX Design</p>
-                <h4 class="pc-tt">Aplikasi Toko Sepatu</h4>
-                <p class="pc-tc">Figma · Prototyping · User Research</p>
-              </div>
-            </div>
-            <div class="pc web"><img src="Website_Coffe.jpg"
-                alt="">
-              <div class="pc-ov">
-                <p class="pc-cat">Website</p>
-                <h4 class="pc-tt">Website Toko Kopi - LT2 Roastery</h4>
-                <p class="pc-tc">HTML · CSS · JavaScript</p>
-              </div>
-            </div>
-            <div class="pc uiux"><img src="E-commerce.png"
-                alt="">
-              <div class="pc-ov">
-                <p class="pc-cat">Mobile App</p>
-                <h4 class="pc-tt">E-Commerce Platform</h4>
-                <p class="pc-tc">Figma · Prototyping · User Research</p>
-              </div>
-            </div>
-            <div class="pc web"><img src="Website-Learning.png"
-                alt="">
-              <div class="pc-ov">
-                <p class="pc-cat">Website</p>
-                <h4 class="pc-tt">Typing Game Website</h4>
-                <p class="pc-tc">Claude.ai · Visual Studio Code</p>
-              </div>
-            </div>
-            <div class="pc graphic"><img src="Mockup.png"
-                alt="">
-              <div class="pc-ov">
-                <p class="pc-cat">Graphic Design</p>
-                <h4 class="pc-tt">Mockup LT2 Roastery</h4>
-                <p class="pc-tc">Canva · Illustration</p>
-              </div>
-            </div>
-            <div class="pc graphic"><img src="Poster.jpg"
-                alt="">
-              <div class="pc-ov">
-                <p class="pc-cat">Graphic Design</p>
-                <h4 class="pc-tt">Eco-Conscious Poster</h4>
-                <p class="pc-tc">Canva · Content Strategy</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ==========================================================
-           SECTION 4: CONTACT  ⬇ UBAH INFO KONTAK ⬇
-      ========================================================== -->
-        <section class="s s-alt">
-          <div class="ct-hero">
-            <p class="eyebrow"><i class="fa-solid fa-paper-plane" style="margin-right:7px"></i>Get In Touch</p>
-            <h2 class="title">Contact</h2>
-          </div>
-
-          <!-- BANNER REKRUTMEN — ubah teks & email -->
-          <div class="ct-ban">
-            <i class="fa-solid fa-briefcase big"></i>
-            <div>
-              <strong>Tertarik Merekrut Saya?</strong>
-              <p>Jika Anda ingin merekrut saya, silahkan hubungi melalui
-                <strong>abelajar486@gmail.com</strong><!-- ⬇ UBAH EMAIL ⬇ -->
-                atau klik tombol <strong>"Hubungi Saya"</strong> di bawah.
-                Saya siap berdiskusi mengenai peluang kerja, magang, maupun freelance!
-              </p>
-            </div>
-          </div>
-
-          <div class="ct-grid">
-            <div class="ct-card">
-              <p class="ct-lbl"><i class="fa-solid fa-location-dot" style="margin-right:5px"></i>Location</p><span
-                class="ct-val">Bogor, Indonesia</span>
-            </div><!-- UBAH LOKASI -->
-            <div class="ct-card">
-              <p class="ct-lbl"><i class="fa-solid fa-phone" style="margin-right:5px"></i>Phone</p><span
-                class="ct-val">+62 812 3456 7890</span>
-            </div><!-- UBAH TELEPON -->
-            <div class="ct-card">
-              <p class="ct-lbl"><i class="fa-solid fa-globe" style="margin-right:5px"></i>Website</p><a href="#"
-                class="ct-val">fatih-dev.com</a>
-            </div><!-- UBAH WEBSITE -->
-            <div class="ct-card">
-              <p class="ct-lbl"><i class="fa-solid fa-envelope" style="margin-right:5px"></i>Email</p><a
-                href="mailto:abelajar486@gmail.com" class="ct-val">abelajar486@gmail.com</a>
-            </div><!-- UBAH EMAIL -->
-          </div>
-
-          <div class="ct-div"></div>
-
-          <div class="ct-ft">
-            <div class="ct-nm">
-              <h2>muhammad <span>Fatih Al-Adiyat</span></h2>
-            </div>
-            <div class="ct-cta">
-              <!--
-              ============================================================
-              TOMBOL WHATSAPP — ⬇ UBAH NOMOR WA DI SINI ⬇
-              Format: https://wa.me/[NOMOR TANPA + DAN SPASI]?text=[PESAN]
-              Contoh: +62 812 3456 7890 → 6281234567890
-              Ganti "6281234567890" dengan nomor WA Anda.
-              ============================================================
-            -->
-              <a href="https://wa.me/6281234567890?text=Halo%20Fatih%2C%20saya%20tertarik%20berdiskusi%20mengenai%20peluang%20kerja%20bersama%20Anda."
-                target="_blank" rel="noopener noreferrer" class="btn-wa">
-                <i class="fa-brands fa-whatsapp"></i><span>Hubungi Saya</span>
-              </a>
-              <div class="ct-sm">
-                <!-- GANTI href SOSMED -->
-                <a href="https://www.linkedin.com/in/muhammad-fatih-3652483a4/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://github.com/abelajar486-wq" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </div><!-- /slider -->
-
-      <!-- Nav Buttons -->
-      <div class="nav-btns">
-        <button class="nb" id="btnUp" aria-label="Ke atas"><i class="fa-solid fa-chevron-up"></i></button>
-        <button class="nb" id="btnDn" aria-label="Ke bawah"><i class="fa-solid fa-chevron-down"></i></button>
-      </div>
-
-    </main>
-  </div><!-- /root -->
-
-  <!-- ================================================================
-     JAVASCRIPT
-================================================================ -->
-  <script>
-    /* ================================================================
-       THEME TOGGLE
-    ================================================================ */
-    const htmlEl = document.documentElement;
-    const togBtn = document.getElementById('themeToggle');
-    const togIcon = document.getElementById('themeIcon');
-    const togLabel = document.getElementById('themeLabel');
-
-    function setTheme(t) {
-      htmlEl.setAttribute('data-theme', t);
-      togIcon.className = t === 'dark' ? 'fa-solid fa-moon ti' : 'fa-solid fa-sun ti';
-      togLabel.textContent = t === 'dark' ? 'Dark' : 'Light';
-      localStorage.setItem('pf-theme', t);
-    }
-    setTheme(localStorage.getItem('pf-theme') || 'dark');
-    togBtn.addEventListener('click', () => setTheme(htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
-
-    /* ================================================================
-       SLIDER — aktif di SEMUA ukuran layar
-    ================================================================ */
-    window.addEventListener('DOMContentLoaded', () => {
-      const slider = document.getElementById('slider');
-      const sections = document.querySelectorAll('.s');
-      const btnUp = document.getElementById('btnUp');
-      const btnDn = document.getElementById('btnDn');
-      const dotsWrap = document.getElementById('navDots');
-      const mhSecEl = document.getElementById('mhSec');
-      const mhEl = document.getElementById('mh');
-
-      /* Label section di mobile header — ⬇ UBAH NAMA JIKA PERLU ⬇ */
-      const secLabels = [
-        '<i class="fa-solid fa-house" style="font-size:7px;margin-right:4px"></i>Home',
-        '<i class="fa-solid fa-terminal" style="font-size:7px;margin-right:4px"></i>Skills',
-        '<i class="fa-solid fa-layer-group" style="font-size:7px;margin-right:4px"></i>Portfolio',
-        '<i class="fa-solid fa-paper-plane" style="font-size:7px;margin-right:4px"></i>Contact',
-      ];
-
-      let cur = 0, busy = false;
-      const total = sections.length;
-
-      /* Buat nav dots */
-      sections.forEach((_, i) => {
-        const d = document.createElement('div');
-        d.className = 'nd' + (i === 0 ? ' active' : '');
-        d.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(d);
-      });
-
-      /* Hitung tinggi mobile header */
-      function mhH() { return mhEl && getComputedStyle(mhEl).display !== 'none' ? mhEl.offsetHeight : 0 }
-
-      /* Apply tinggi section & main padding secara dinamis */
-      function applyLayout() {
-        const h = mhH();
-        const mainEl = document.getElementById('main');
-        if (h > 0) {
-          mainEl.style.paddingTop = h + 'px';
-          sections.forEach(s => { s.style.height = (window.innerHeight - h) + 'px'; });
-        } else {
-          mainEl.style.paddingTop = '';
-          sections.forEach(s => { s.style.height = ''; });
-        }
-      }
-
-      /* Pindah ke section index i */
-      function goTo(i) {
-        if (i < 0 || i >= total || busy) return;
-        busy = true; cur = i; render();
-        setTimeout(() => busy = false, 1050);
-      }
-
-      /* Render posisi slider & state */
-      function render() {
-        const h = mhH();
-        const sh = window.innerHeight - h; // tinggi satu section
-        slider.style.transform = `translateY(-${cur * sh}px)`;
-
-        sections.forEach((sec, i) => {
-          if (i === cur) {
-            sec.classList.add('active');
-            sec.querySelectorAll('.sk-bar').forEach(b => { b.style.width = b.dataset.width + '%'; });
-          } else {
-            sec.classList.remove('active');
-          }
-        });
-
-        dotsWrap.querySelectorAll('.nd').forEach((d, i) => d.classList.toggle('active', i === cur));
-        if (mhSecEl) mhSecEl.innerHTML = secLabels[cur] || '';
-
-        btnUp.disabled = cur === 0;
-        btnDn.disabled = cur === total - 1;
-      }
-
-      btnUp.addEventListener('click', () => goTo(cur - 1));
-      btnDn.addEventListener('click', () => goTo(cur + 1));
-
-      /* Mouse wheel */
-      let wc = false;
-      window.addEventListener('wheel', e => {
-        if (wc) return; wc = true;
-        e.deltaY > 0 ? goTo(cur + 1) : goTo(cur - 1);
-        setTimeout(() => wc = false, 1100);
-      }, { passive: true });
-
-      /* Touch swipe — pindah section di seluruh layar */
-      let ty0 = 0;
-      window.addEventListener('touchstart', e => { ty0 = e.touches[0].clientY; }, { passive: true });
-      window.addEventListener('touchend', e => {
-        const d = ty0 - e.changedTouches[0].clientY;
-        if (Math.abs(d) > 55) { d > 0 ? goTo(cur + 1) : goTo(cur - 1); }
-      }, { passive: true });
-
-      /* Keyboard */
-      window.addEventListener('keydown', e => {
-        if (e.key === 'ArrowDown' || e.key === 'PageDown') goTo(cur + 1);
-        if (e.key === 'ArrowUp' || e.key === 'PageUp') goTo(cur - 1);
-      });
-
-      /* Resize / orientasi berubah */
-      window.addEventListener('resize', () => { applyLayout(); render(); });
-
-      /* Init */
-      applyLayout();
-      render();
-      sections[0].classList.add('active');
-      sections[0].querySelectorAll('.sk-bar').forEach(b => { b.style.width = b.dataset.width + '%'; });
-    });
-
-    /* ================================================================
-       PORTFOLIO FILTER
-    ================================================================ */
-    window.fp = function (cat) {
-      document.querySelectorAll('.port-tb').forEach(t => {
-        t.classList.remove('active');
-        const tx = t.textContent.trim().toLowerCase();
-        if ((cat === 'all' && tx === 'all') || (cat === 'uiux' && tx === 'ui/ux') || (cat === 'web' && tx === 'website') || (cat === 'graphic' && tx === 'graphic'))
-          t.classList.add('active');
-      });
-      document.querySelectorAll('.pc').forEach(item => {
-        const show = cat === 'all' || item.classList.contains(cat);
-        if (show) {
-          item.style.display = 'block';
-          requestAnimationFrame(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; });
-        } else {
-          item.style.opacity = '0'; item.style.transform = 'scale(.93)';
-          item.style.transition = 'all .28s ease';
-          setTimeout(() => { item.style.display = 'none'; }, 300);
-        }
-      });
-    };
-    window.addEventListener('DOMContentLoaded', () => fp('all'));
-  </script>
-</body>
-
-</html>
+  
+}
